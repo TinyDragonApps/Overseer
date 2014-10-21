@@ -3,6 +3,9 @@ class ServicesController < ApplicationController
     @cluster = Monittr::Cluster.new(['http://localhost:2812'])
   end
 
+  def new
+  end
+
   def show
   end
 
