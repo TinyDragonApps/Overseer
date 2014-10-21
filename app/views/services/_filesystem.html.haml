@@ -1,0 +1,9 @@
+%tr
+  %td
+    = render partial: 'services/dots', locals:{object: filesystem}
+    = filesystem.name
+  %td
+    %div.progress
+      %div.progress-bar{style:"width:#{filesystem.percent}%"}
+  %td.text-right
+    = "#{filesystem.percent}%"

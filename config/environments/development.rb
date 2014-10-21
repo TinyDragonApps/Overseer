@@ -1,4 +1,6 @@
 Rails.application.configure do
+  FakeWeb.register_uri(:get, 'http://localhost:2812/_status?format=xml', :body => File.read('public/status.xml') )
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

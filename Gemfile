@@ -15,6 +15,9 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'unicorn'
 gem 'unicorn-rails'
+gem 'monittr', git: 'https://github.com/softwareforgood/monittr.git', branch: 'master'
+gem 'fakeweb'
+gem 'font-awesome-rails'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

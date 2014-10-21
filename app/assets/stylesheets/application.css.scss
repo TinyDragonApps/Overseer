@@ -12,4 +12,18 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
+.fa.fa-check-circle{
+  color: green;
+}
+.fa.fa-times-circle{
+  color: red;
+}
+.green{
+  color: green;
+}
+.red{
+  color: red;
+}
+
