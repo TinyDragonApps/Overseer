@@ -1,5 +1,6 @@
 Rails.application.configure do
   FakeWeb.register_uri(:get, 'http://localhost:2812/_status?format=xml', :body => File.read('public/status.xml') )
+  FakeWeb.register_uri(:get, 'http://127.0.0.1:2812/_status?format=xml', :body => File.read('public/status.xml') )
 
   # Settings specified here will take precedence over those in config/application.rb.
 
