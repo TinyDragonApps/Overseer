@@ -6,6 +6,32 @@
   - else
     %i.fa.fa-times-circle
 
+- unless server.system.nil?
+  .row
+    .col-sm-4
+      %span
+        = server.system.name
+    .col-md-2
+      %span
+        Load:
+        %b
+          = server.system.load
+    .col-md-2
+      %span
+        CPU:
+        %b
+          = server.system.cpu
+    .col-md-2
+      %span
+        Memory:
+        %b
+          = "#{server.system.memory}%"
+    .col-md-2
+      %span
+        Uptime:
+        %b
+          = time_in_words(server.system.uptime)
+
 - if server.filesystems.count > 0
   %h4
     Filesystems
