@@ -1,1 +1,31 @@
-= render partial: 'services/servers', locals:{servers: @cluster.servers}
+%section.container
+  - @cluster.servers.each_with_index do |server, index|
+    .row
+      .col-sm-4
+        %span
+          %b
+            = link_to server.system.name, service_path(@servers[index])
+            - if server.system.status == 0
+              %i.fa.fa-check-circle
+            - else
+              %i.fa.fa-times-circle
+      .col-md-2
+        %span
+          Load:
+          %b
+            = server.system.load
+      .col-md-2
+        %span
+          CPU:
+          %b
+            = server.system.cpu
+      .col-md-2
+        %span
+          Memory:
+          %b
+            = "#{server.system.memory}%"
+      .col-md-2
+        %span
+          Uptime:
+          %b
+            = time_in_words(server.system.uptime)

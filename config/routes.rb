@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resource :services
+  resources :services
 
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signin' => 'sessions#new', :as => :signin
