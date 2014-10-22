@@ -26,6 +26,13 @@ class ServicesController < ApplicationController
   end
 
   def update
+    if @service.update_attributes(service_params)
+      flash[:success] = "Service updated"
+      render :show
+    else
+      flash[:warning] = "Unable to update"
+      render :edit
+    end
   end
 
   def destroy
