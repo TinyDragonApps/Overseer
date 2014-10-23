@@ -1,4 +1,6 @@
-<%# add navigation links to this file %>
+<li>
+  <%= link_to 'Services', services_path %>
+</li>
 <% if user_signed_in? %>
   <li>
     <%= link_to 'New Monit Service', new_service_path %>

@@ -8,9 +8,17 @@
         %div.form-group
           %label
             IP Address
-          = f.text_field :ip_address
+          = f.text_field :ip_address, class: "form-control", placeholder: "192.168.1.2"
         %div.form-group
           %label
             Port
-          = f.text_field :port
+          = f.text_field :port, class: "form-control", placeholder: "2812"
+        %div.form-group
+          %label
+            Username
+          = f.text_field :username, class: "form-control", placeholder: "admin (leave blank if unused)"
+        %div.form-group
+          %label
+            Password
+          = f.text_field :password, class: "form-control", placeholder: "monit (leave blank if unused)"
         = f.button type: 'submit', class:'btn btn-default'

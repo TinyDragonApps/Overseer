@@ -18,8 +18,10 @@ class ServicesController < ApplicationController
     @service = Service.new(service_params)
     @service.user = current_user
     if @service.save
-      redirect_to '/'
+      redirect_to services_path
     else
+      flash[:warning] = @service.errors.full_messages.first
+      render :new
     end
   end
 
@@ -40,7 +42,7 @@ class ServicesController < ApplicationController
   def destroy
     if @service.destroy
       flash[:info] = "Service destroyed"
-      redirect_to root_url
+      redirect_to services_path
     else
       flash[:warning] = "Unable to delete service"
       render :show
