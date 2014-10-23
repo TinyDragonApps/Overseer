@@ -1,4 +1,5 @@
 class Service < ActiveRecord::Base
+  belongs_to :user
 
   def url
     if username.nil?

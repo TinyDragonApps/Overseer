@@ -7,6 +7,11 @@ class ApplicationController < ActionController::Base
   helper_method :user_signed_in?
   helper_method :correct_user?
 
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:danger] = exception.message
+    redirect_to root_url
+  end
+
   private
     def current_user
       begin

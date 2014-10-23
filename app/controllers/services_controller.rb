@@ -1,8 +1,9 @@
 class ServicesController < ApplicationController
+  load_and_authorize_resource
   before_action :load_service, only: [:show, :edit, :update, :destroy]
 
   def index
-    @servers = Service.all
+    @servers = current_user.services
     @cluster = Monittr::Cluster.new(@servers.map{ |s| s.url })
   end
 
@@ -15,6 +16,7 @@ class ServicesController < ApplicationController
 
   def create
     @service = Service.new(service_params)
+    @service.user = current_user
     if @service.save
       redirect_to '/'
     else

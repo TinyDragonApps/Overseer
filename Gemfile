@@ -18,6 +18,8 @@ gem 'unicorn-rails'
 gem 'monittr', git: 'https://github.com/softwareforgood/monittr.git', branch: 'master'
 gem 'fakeweb'
 gem 'font-awesome-rails'
+gem 'cancancan', '~> 1.9'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
