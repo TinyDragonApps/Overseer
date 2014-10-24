@@ -56,6 +56,6 @@ class ServicesController < ApplicationController
   end
 
   def service_params
-    params.require(:service).permit(:ip_address, :port)
+    params.require(:service).permit(:ip_address, :port, :username, :password)
   end
 end
