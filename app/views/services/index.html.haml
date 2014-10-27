@@ -2,7 +2,7 @@
   %h1 Monit Services
   - @cluster.servers.each_with_index do |server, index|
     .row
-      .col-sm-4
+      .col-sm-6
         %span
           %b
             = link_to server.system.name, service_path(@servers[index])
@@ -10,23 +10,29 @@
               %i.fa.fa-check-circle
             - else
               %i.fa.fa-times-circle
-      .col-md-2
-        %span
+      .col-sm-2
+        %span.pull-right
           Load:
           %b
             = server.system.load
-      .col-md-2
+      .col-sm-4
+        %span.pull-right
+          Uptime:
+          %b
+            = time_in_words(server.system.uptime)
+    .row
+      .col-sm-2
         %span
           CPU:
           %b
             = "#{server.system.cpu}%"
-      .col-md-2
+      .col-sm-10
+        = render partial: 'services/progress', locals: {percent: server.system.cpu}
+    .row
+      .col-sm-2
         %span
           Memory:
           %b
             = "#{server.system.memory}%"
-      .col-md-2
-        %span
-          Uptime:
-          %b
-            = time_in_words(server.system.uptime)
+      .col-sm-10
+        = render partial: 'services/progress', locals: {percent: server.system.memory}
